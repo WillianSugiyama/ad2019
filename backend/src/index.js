@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 import mongoConnect from "./config/mongo.config";
+import peopleRoute from "./routes/people";
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.get("/", (req, res) => {
     message: "Hello",
   });
 });
+
+app.use("/api", peopleRoute);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Listening on port ${process.env.PORT}`);

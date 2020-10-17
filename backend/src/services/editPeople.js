@@ -5,16 +5,18 @@ import ResultMessage from '../utils/resultMessage';
 const editPeople = async (id, peopleBody) => {
   const people = await PeopleSchema.findById(id);
 
-  const data = {...peopleBody, ...people};
+  const data = { ...people._doc, ...peopleBody };
 
   if(!people) {
     return ResultMessage(StatusCode.NOT_FOUND, `People not found`);
   }
 
   try {
-    const peopleSaved = await PeopleSchema.findOneAndUpdate({_id: id}, { ...data });
+    await PeopleSchema.findOneAndUpdate({_id: id}, { ...data });
 
-    return ResultMessage(StatusCode.OK, {people: peopleSaved, message: `People has been updated`});
+    const peopleUpdated = await PeopleSchema.findById({_id: id});
+
+    return ResultMessage(StatusCode.OK, {people: peopleUpdated, message: `People has been updated`});
   } catch (error) {
     return ResultMessage(StatusCode.INTERNAL_SERVER_ERROR, `Error on update people, error: ${error}`);
   }

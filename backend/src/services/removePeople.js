@@ -2,7 +2,7 @@ import PeopleSchema from '../schemas/people';
 import StatusCode from '../utils/statusCode';
 import ResultMessage from '../utils/resultMessage';
 
-const removePeople = async (peopleBody) => {
+const removePeople = async (id) => {
   const people = await PeopleSchema.findById(id);
 
   if(!people) {
