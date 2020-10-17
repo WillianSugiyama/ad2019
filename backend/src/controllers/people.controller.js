@@ -3,7 +3,7 @@ import EditPeople from "../services/editPeople";
 import { listPeople, listPeoples } from "../services/listPeople";
 import RemovePeople from "../services/removePeople";
 import StatusCode from "../utils/statusCode";
-
+import DrawPeople from "../services/drawPeoples";
 
 const createPeopleController = async (req, res) => {
   const {name, email} = req.body;
@@ -53,4 +53,17 @@ const removeController = async (req, res) => {
   res.status(removed.statusCode).send(removed.message);
 }
 
-export { createPeopleController, editPeopleController, listOneController, listAllController, removeController };
+const drawPeoplesController = async (req, res) => {
+   const drawed = await DrawPeople();
+
+   res.status(drawed.statusCode).send(drawed);
+}
+
+export { 
+  createPeopleController, 
+  editPeopleController, 
+  listOneController, 
+  listAllController, 
+  removeController,
+  drawPeoplesController 
+};
