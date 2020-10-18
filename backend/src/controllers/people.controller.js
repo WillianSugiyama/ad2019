@@ -41,29 +41,29 @@ const listAllController = async (req, res) => {
   const peoples = await listPeoples();
 
   res.status(peoples.statusCode).send(peoples.message);
-}
+};
 
 const removeController = async (req, res) => {
   if(!req.query.id) {
     res.status(StatusCode.BAD_REQUEST).send(`Bad Parameters`);
   }
-  
+
   const removed = await RemovePeople(req.query.id);
 
   res.status(removed.statusCode).send(removed.message);
-}
+};
 
 const drawPeoplesController = async (req, res) => {
    const drawed = await DrawPeople();
 
    res.status(drawed.statusCode).send(drawed);
-}
+};
 
-export { 
-  createPeopleController, 
-  editPeopleController, 
-  listOneController, 
-  listAllController, 
+export {
+  createPeopleController,
+  editPeopleController,
+  listOneController,
+  listAllController,
   removeController,
-  drawPeoplesController 
+  drawPeoplesController
 };

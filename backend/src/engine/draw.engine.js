@@ -20,8 +20,8 @@ const draw = async (peoples) => {
     result.push({
       sender: sender,
       receiver: receiver
-    })
-  }
+    });
+  };
 
   return result;
 }
