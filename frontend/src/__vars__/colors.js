@@ -1,0 +1,10 @@
+export default {
+  PRIMARY: "#e2e1e0",
+  SECONDARY: "#0C1E24",
+  TERTIARY: "#091012",
+  QUATERNARY: "#060F12",
+  QUINARY: "#D7EEF5",
+
+  DANGER_COLOR: "#EC0101",
+  BLUE: "#47B0FF",
+}
