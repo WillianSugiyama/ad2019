@@ -15,7 +15,7 @@ const drawPeople = async () => {
     const drawed = await DrawEngine(peoples);
 
     if(!drawed) {
-      return ResultMessage(StatusCode.CREATED, `Draw not working, it's odd`);
+      return ResultMessage(StatusCode.BAD_REQUEST, `Draw not working, it's odd`);
     }
 
 
@@ -25,7 +25,7 @@ const drawPeople = async () => {
       EmailEngine(people.sender.email, "Olá, o sorteio do amigo secreto foi realizado", `Você tirou ${people.receiver.name}`);
     });
 
-    return ResultMessage(StatusCode.CREATED, {drawed, message: `Peoples Drawed`});
+    return ResultMessage(StatusCode.OK, {drawed, message: `Peoples Drawed`});
   } catch(error) {
     return ResultMessage(StatusCode.INTERNAL_SERVER_ERROR, `Error on draw peoples, error: ${error}`);
   }

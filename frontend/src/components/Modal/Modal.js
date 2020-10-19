@@ -23,7 +23,12 @@ const ModalContent = styledComponents.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-`;
+
+  @media(min-width: 767) {
+    width: 75%;
+    height: 75%;
+  }
+ `;
 
 const ModalComponent = (props) => {
   return (

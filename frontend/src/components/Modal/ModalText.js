@@ -13,8 +13,8 @@ const ModalText = styledComponents.div`
 
   h1 {
     color: ${colors.SECONDARY};
-    font-weight: 700;
-    margin-bottom: 5%;
+    font-weight: 500;
+    margin-bottom: 10%;
   }
 `;
 

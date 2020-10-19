@@ -31,11 +31,10 @@ const ModalCreate = (props) => {
         name,
         email,
       });
-
-      const users = props.users.push(response.data.people);
+      const users = [...props.users, response.data.people];
 
       props.setUsers([...users]);
-      props.setState({...props.state, showModal: false});
+      props.setState({...props.state, showModalCreate: false});
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +50,7 @@ const ModalCreate = (props) => {
 
 
   const closeModal = () => {
-    props.setState({...props.state, showModal: false});
+    props.setState({...props.state, showModalCreate: false});
   }
 
   const classes = useStyles();
