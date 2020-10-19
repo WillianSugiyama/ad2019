@@ -10,7 +10,7 @@ const listPeople = async (id) => {
       return ResultMessage(StatusCode.NOT_FOUND, `People not found`);
     }
 
-    return ResultMessage(StatusCode.CREATED, {people: people, message: `People has been created`});
+    return ResultMessage(StatusCode.OK, {people: people, message: `People listed`});
   } catch(error) {
     return ResultMessage(StatusCode.INTERNAL_SERVER_ERROR, `Error on list people, error: ${error}`);
   }
@@ -24,7 +24,7 @@ const listPeoples = async () => {
       return ResultMessage(StatusCode.NOT_FOUND, `People not found`);
     }
 
-    return ResultMessage(StatusCode.CREATED, {peoples: peoples, message: `People has been created`});
+    return ResultMessage(StatusCode.OK, {peoples: peoples, message: `Peoples listed`});
   } catch(error) {
     return ResultMessage(StatusCode.INTERNAL_SERVER_ERROR, `Error on list peoples, error: ${error}`);
   }
